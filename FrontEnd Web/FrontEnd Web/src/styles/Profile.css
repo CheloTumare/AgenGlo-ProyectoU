@@ -1,0 +1,254 @@
+/*
+  ==============================================
+  1. Contenedor Principal y Fondo (para efecto Neumórfico)
+  ==============================================
+*/
+.p-page {
+    /* Color de fondo ligeramente grisáceo: clave para el neumorfismo */
+    background-color: #9199d8; 
+    min-height: calc(100vh - 64px); 
+    padding: 30px 20px;
+    
+    /* Centrado de la tarjeta */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*
+  ==============================================
+  2. La Tarjeta (Efecto Neumorfismo Suave)
+  ==============================================
+*/
+.p-card-square {
+    /* Color de fondo igual al del p-page */
+    background-color: #e0e5ec; 
+    border-radius: 20px; 
+    padding: 40px;
+    text-align: center;
+    width: 90vw; 
+    max-width: 450px; 
+    margin: 20px auto;
+    
+    /* Para hacerlo cuadrado */
+    aspect-ratio: 1 / 1; 
+    
+    /* Efecto Neumórfico: Sombra oscura a la derecha/abajo y luz a la izquierda/arriba */
+    box-shadow: 
+        10px 10px 20px rgba(174, 174, 192, 0.4), /* Sombra exterior oscura */
+        1px 1px 20px rgb(182, 174, 174); /* Sombra exterior clara */
+    
+    /* Centrar contenido internamente */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* ⬅️ Mantiene el grupo de texto arriba y el botón abajo */
+    align-items: center;
+    transition: all 0.4s ease-in-out;
+}
+
+/* Efecto al pasar el ratón: Presionar la tarjeta (sombra invertida) */
+.p-card-square:hover {
+    box-shadow: 
+        inset 5px 5px 10px rgba(174, 174, 192, 0.4), /* Sombra interior oscura */
+        inset -5px -5px 10px rgba(255, 255, 255, 1); /* Sombra interior clara */
+}
+
+/*
+  ==============================================
+  3. Texto de Saludo
+  ==============================================
+*/
+.p-text-container {
+    margin-top: 20%; 
+}
+
+.p-text {
+    font-size: 3rem; 
+    font-weight: 900; /* Extra bold */
+    color: #3b82f6; /* Usamos el color primario para el título */
+    margin: 0;
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+/* ⬅️ NUEVO CONTENEDOR SUPERIOR */
+.p-text-container-top {
+    /* Asegura que el grupo ocupe el ancho necesario y se centre en la parte superior */
+    width: 100%;
+    margin-top: 15%; /* ⬅️ Menos margen, solo para empujar ligeramente del borde superior */
+    transition: all 0.3s;
+}
+
+/* Modificamos la fuente, eliminando el margin-bottom */
+.p-text {
+    font-size: 3rem; 
+    font-weight: 900; 
+    color: #171240; 
+    margin: 0; /* ⬅️ Esto es clave: elimina el margen inferior del título */
+    line-height: 1.1;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+/*
+  ==============================================
+  4. Roles (Etiquetas distintivas con estilo Neumórfico)
+  ==============================================
+*/
+.p-rol, .p-rol2 {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 700;
+    padding: 8px 20px;
+    border-radius: 50px;
+    margin-top: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    
+    /* Sombra interna para efecto "hundido" */
+    box-shadow: 
+        inset 3px 3px 5px rgba(174, 174, 192, 0.4), 
+        inset -3px -3px 5px rgba(255, 255, 255, 1);
+    
+    transition: all 0.3s;
+}
+
+/* Estilo para Cliente (Armonía con el color de base) */
+.p-rol2 {
+    background-color: #dcfce7; /* Verde claro */
+    color: #059669; 
+}
+
+/* Estilo para Proveedor (Contraste) */
+.p-rol {
+    background-color: #fef3c7; /* Amarillo claro */
+    color: #b45309; 
+}
+
+/*
+  ==============================================
+  5. Enlaces y Botones de Acción (Estilo Flotante)
+  ==============================================
+*/
+/*
+  ==============================================
+  5. Enlaces y Botones de Acción (Estilo Flotante)
+  ==============================================
+*/
+.p-action-area {
+    width: 100%;
+    padding-bottom: 15%;
+    display: flex; /* Añadido para asegurar el centrado del botón/mensaje */
+    justify-content: center;
+}
+
+/* Modificación para el mensaje "Inicia sesión" */
+.p-login-message {
+    /* Quitamos los márgenes por defecto */
+    margin: 0;
+    cursor: pointer;
+    /* Damos el mismo ancho y altura que un botón para consistencia visual */
+    width: 100%;
+    
+    /* El span interno es el que tiene la apariencia de la etiqueta neumórfica */
+    transition: all 0.3s ease-out;
+}
+
+.p-login-message > span {
+    /* Estilo de la etiqueta */
+    display: block;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    color: #4b5563; /* Color de texto más sutil */
+    text-align: center;
+    
+    /* Neumorfismo de "hundido" (inset shadow) */
+    box-shadow: 
+        inset 5px 5px 10px rgba(174, 174, 192, 0.4), /* Sombra interior oscura */
+        inset  rgba(255, 255, 255, 1); /* Sombra interior clara */
+        
+    background-color: #c0ccdb; /* Color base */
+    transition: all 0.3s ease-out;
+}
+
+/* Efecto al pasar el ratón: le damos un ligero realce */
+.p-login-message:hover > span {
+    box-shadow: 
+        inset 3px 3px 6px rgba(174, 174, 192, 0.4), 
+        inset -3px -3px 6px rgba(255, 255, 255, 1);
+}
+
+/* Puedes eliminar todo el estilo anterior que comienza con:
+.p-action-area > p { ... } 
+*/
+
+.p-button {
+    background-color: #3b82f6; /* Azul primario */
+    color: #ffffff;
+    border: none;
+    padding: 15px 0;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    
+    /* Sombra de botón "elevado" */
+    box-shadow: 6px 6px 12px rgba(59, 130, 246, 0.5), 
+               -6px -6px 12px rgba(255, 255, 255, 0.8);
+    
+    transition: all 0.3s ease-out;
+}
+
+/* Efecto de presionado del botón */
+.p-button:active {
+    box-shadow: 
+        inset 3px 3px 7px rgba(59, 130, 246, 0.5), 
+        inset -3px -3px 7px rgba(255, 255, 255, 0.8);
+    transform: scale(0.98);
+}
+
+/* Estilo para "Inicia sesion" (si no hay usuario) */
+.p-action-area > p {
+    font-size: 1rem;
+    color: #4b5563; 
+    margin-top: 25px;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #aeb1b6;
+    cursor: pointer;
+}
+
+
+/*
+  ==============================================
+  6. Responsividad Móvil
+  ==============================================
+*/
+@media (max-width: 500px) {
+    .p-card-square {
+        /* Permite que la tarjeta se alargue en móviles pequeños */
+        aspect-ratio: auto; 
+        padding: 30px;
+        width: 100%;
+        min-height: 400px;
+    }
+    
+    .p-text {
+        font-size: 2.5rem;
+    }
+    
+    .p-text-container {
+        margin-top: 15%;
+    }
+    
+    .p-action-area {
+        padding-bottom: 15%;
+    }
+    
+    /* Ajuste de sombra para menor resolución */
+    .p-card-square {
+        box-shadow: 
+            5px 5px 10px rgba(174, 174, 192, 0.4), 
+            -5px -5px 10px rgba(255, 255, 255, 1);
+    }
+}

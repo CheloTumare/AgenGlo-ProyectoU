@@ -1,0 +1,155 @@
+/* Archivo: styles/VerifyOTP.css - Armonizado con Estilo RP Claro */
+
+/* Paleta: #2e0a22 (Dark Focus), #e1a8f0, #edcbf6 (Claro), #9199d8, #5f6b86, #5966cc (Hover), #190b5b (Very Dark) */
+
+/* --- 1. Contenedor de la Página (Fondo y Centrado) --- */
+.otp-page-container {
+    /* Fondo oscuro de la página RP */
+    background-color: #171240; 
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; 
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* --- 2. Contenedor de la Imagen (Flotando sobre la Tarjeta) --- */
+.otp-image-container {
+    margin-bottom: -50px; 
+    z-index: 15;
+    position: relative; 
+    text-align: center;
+}
+
+.otp-top-image {
+    max-width: 120px; 
+    height: auto;
+    border-radius: 50%; 
+    
+    /* Fondo para contrastar la imagen */
+    background-color: #edcbf6; /* Color más claro de la paleta */
+    padding: 10px; 
+    
+    /* Sombra para darle profundidad */
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.5); 
+}
+
+/* --- 3. Contenedor de la Tarjeta (Efecto Glassmorphism CLARO del RP) --- */
+.otp-card-wrapper {
+    width: 100%;
+    max-width: 400px;
+    padding: 30px;
+    padding-top: 80px; 
+    text-align: center;
+    
+    /* Estilo de Glassmorphism Claro (tomado de .rp-wrapper) */
+    background-color: hsla(252, 7%, 87%, 0.87); /* Fondo claro y translúcido */
+    backdrop-filter: blur(20px); /* Usamos el desenfoque más fuerte del RP */
+    border-radius: 16px; 
+    box-shadow: 0 6px 24px #595d81; /* Sombra sutil del RP */
+    border: 2px solid hsla(249, 17%, 92%, 0); /* Borde suave del RP */
+}
+
+/* --- 4. Icono de Candado (Ajustado) --- */
+.otp-icon-lock {
+    color: #2e0a22; /* El icono debe ser oscuro para contrastar con el fondo claro de la tarjeta */
+    font-size: 2rem; 
+    margin-top: -30px; 
+    margin-bottom: 25px;
+    display: flex;
+    justify-content: center;
+    z-index: 20; 
+    position: relative;
+}
+
+.otp-icon-lock i {
+    background-color: transparent; 
+    box-shadow: none;
+    padding: 0;
+}
+
+
+/* --- 5. Formulario y Campos --- */
+.otp-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.otp-input-container {
+    text-align: center;
+}
+
+.otp-label {
+    /* El texto de la etiqueta debe ser OSCURO para contrastar con el fondo claro de la tarjeta */
+    font-size: 1.1rem; 
+    color: #2e0a22; /* Dark Focus */
+    margin-bottom: 8px;
+    font-weight: 600; /* Lo hacemos más audaz como el título RP */
+}
+
+.otp-input-field {
+    width: 100%;
+    padding: 12px 15px;
+    
+    /* Input: Fondo BLANCO/CLARO y borde OSCURO para seguir el estilo RP */
+    background-color: #ffffff; 
+    border: 2px solid #2f0a23; /* Borde oscuro como en RP */
+    color: #2f0a23; /* Texto oscuro */
+    border-radius: 50px; /* Bordes más curvos como en RP */
+    font-size: 1.1rem;
+    outline: none;
+    text-align: center;
+    letter-spacing: 5px; /* Hacemos el espaciado más amplio para OTP */
+}
+
+.otp-input-field:focus {
+    border-color: #5966cc; /* Color de foco */
+    background-color: #ffffff;
+}
+
+/* --- 6. Botón de Envío --- */
+.otp-submit-button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 25px; /* Bordes más curvos como en RP */
+    
+    background-color: #2e0a22; /* Dark Focus */
+    color: #fff; /* Texto blanco en el botón oscuro */
+    font-weight: 600;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 24px #858cbd; /* Sombra de botón del RP */
+}
+
+.otp-submit-button:hover {
+    background-color: #5966cc; /* Button Hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px #5966cc;
+}
+
+/* --- 7. Responsividad (Ajustada) --- */
+@media (max-width: 480px) {
+    .otp-card-wrapper {
+        padding: 2rem;
+        padding-top: 60px;
+    }
+    .otp-image-container {
+        margin-bottom: -40px; 
+    }
+    .otp-top-image {
+        max-width: 90px; 
+    }
+    .otp-label {
+        font-size: 1rem;
+    }
+    .otp-input-field {
+        font-size: 1rem;
+        padding-top: 15px;
+        padding-bottom: 8px;
+    }
+}

@@ -1,0 +1,331 @@
+/*=============== GOOGLE FONTS & VARIABLES ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@400;500;600;700&display=swap");
+
+/* 🚀 Estilos base para la página de Registro (Sign Up) 🚀 */
+
+/* Contenedor principal para centrar el formulario (su-page envuelve todo) */
+.su-page {
+	position: relative;
+	font-family: 'Inter', sans-serif; /* Reemplazado var(--body-font) */
+	height: 100vh;
+	display: flex;
+	justify-content: center; /* Centrado horizontal */
+	align-items: center; /* Centrado vertical */
+	background: #deb8e9; /* Color de fondo */
+	background-position: center center;
+	overflow: hidden; /* Evita el scroll en la página principal */
+}
+
+/* Contenedor del formulario (su-wrapper) para la superposición */
+.su-wrapper {
+	position: relative;
+	z-index: 10;
+	/* La caja del formulario con el efecto de vidrio esmerilado */
+	background-color: hsla(244, 16%, 92%, 0.6);
+	border: 2px solid hsla(244, 16%, 92%, 0.75);
+	backdrop-filter: blur(20px);
+	padding: 2rem;
+	border-radius: 1rem;
+	display: flex;
+	flex-direction: column;
+	box-shadow: 0 10px 30px rgba(214, 83, 83, 0.15);
+}
+
+/* Ajuste para que el formulario quede encima del carrusel */
+.su-wrapper > .su-page {
+	/* Reseteamos los estilos de .su-page principal para el formulario interior */
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	background: none;
+	padding: 0;
+	overflow: visible;
+}
+
+/* Título (Crear Cuenta) */
+.su-title {
+	color: #2e0a22;
+	font-size: 2.0rem;
+	font-weight: 600; /* Reemplazado var(--font-semi-bold) */
+	text-align: center;
+	margin-bottom: 4px;
+}
+
+/* Mensajes de error */
+.su-error-message {
+	color: #672534; /* Reemplazado var(--error-color) */
+	background-color: #e496a24f;
+	border: 1px solid #2f0a23;
+	border-radius: 0.5rem;
+	padding: 0.7rem 0.8rem;
+	font-size: 0.875rem; /* Reemplazado var(--small-font-size) */
+	font-weight: 500; /* Reemplazado var(--font-medium) */
+	text-align: center;
+	box-shadow: 0 2px 8px rgba(230, 57, 70, 0.1);
+	margin-bottom: 1rem;
+}
+
+/* Contenedor de Formulario */
+.su-form {
+	display: grid;
+	gap: 0.3rem;
+}
+
+/* Estilo de la etiqueta (label) siempre flotante */
+.su-form-label {
+	position: absolute;
+	top: 50%;
+	left: 12px;
+	pointer-events: none;
+	transition: color 0.3s, background-color 0.3s;
+
+	/* <<<--- ESTILOS DE FLOTANTE APLICADOS PERMANENTEMENTE --->>> */
+	transform: translateY(-160%) translateX(-7px); /* Sube la etiqueta por encima del input */
+	font-size: 0.75rem; /* Reemplazado var(--smaller-font-size) */
+	color: #2e0a22;
+	background-color: hsla(244, 16%, 92%, 0.9); /* Fondo para "cortar" el borde */
+	padding: 2px 6px;
+	border-radius: 50px;
+	z-index: 2;
+}
+
+/*======================================================================
+  CAMBIOS ESTRUCTURALES Y RESPONSIVIDAD PARA EL FORMULARIO
+  ======================================================================*/
+
+/* Contenedor de Formulario */
+.su-form {
+	display: grid;
+	/* Reducido para que se vea más compacto */
+	gap: 1rem;
+}
+
+/* Contenedor para Nombre y Apellidos (Lado a lado) */
+.su-form-row {
+	display: flex;
+	gap: 0.5rem; /* Espacio entre los dos campos */
+	width: 100%;
+}
+
+/* Clase auxiliar para dividir la fila a la mitad */
+.su-form-group-half {
+	flex: 1; /* Permite que Nombre y Apellidos ocupen el mismo espacio */
+	min-width: 0;
+}
+
+/* Contenedor de cada grupo de formulario */
+.su-form-group {
+	position: relative;
+	/* Ajustado para el nuevo gap y para que la fila no tenga doble margen */
+	margin-bottom: 0;
+}
+
+/*=========================================================
+  RESPONSIVIDAD: Apilar Nombre y Apellido en Móviles
+  =========================================================*/
+
+@media (max-width: 400px) {
+	/* En dispositivos muy pequeños, apilar los campos Nombre y Apellido */
+	.su-form-row {
+		flex-direction: column;
+		gap: 0; /* Quitar el gap horizontal al apilar */
+	}
+
+	/* Restaurar el margen inferior en los campos cuando están apilados */
+	.su-form-row .su-form-group-half {
+		margin-bottom: 0.8rem;
+	}
+
+	/* Quitar el margen inferior del último campo de la fila para evitar doble espaciado */
+	.su-form-row .su-form-group-half:last-child {
+		margin-bottom: 0;
+	}
+}
+
+/* Estilo del campo de entrada */
+.su-form-input {
+	width: 100%;
+	border-radius: 50px;
+	border: 2px solid #2f0a23;
+	color: #2f0a23;
+	font-size: 0.875rem; /* Reemplazado var(--small-font-size) */
+	font-weight: 500; /* Reemplazado var(--font-medium) */
+	transition: border 0.4s;
+	position: relative;
+	z-index: 0;
+	text-align: left;
+
+	/* <<<--- PADDING PERMANENTE PARA DEJAR ESPACIO AL LABEL FLOTANTE --->>> */
+	padding-top: 15px;
+	padding-bottom: 10px;
+	padding-left: 12px;
+}
+
+.su-form-input:focus {
+	outline: none;
+	border-color: #2f0a23; /* Estilo de borde al enfocar */
+}
+
+/*=============== BOTONES Y ENLACES ===============*/
+
+/* Botón de Enviar (Submit) */
+.su-submit-button {
+	width: 100%;
+	padding: 19px 2rem;
+	border-radius: 25px;
+	background: linear-gradient(180deg, #2f0a23, #2f0a23);
+	color: #fff;
+	font-size: 0.875rem; /* Reemplazado var(--small-font-size) */
+	font-weight: 600; /* Reemplazado var(--font-semi-bold) */
+	box-shadow: 0 6px 24px #e1a8f0;
+	cursor: pointer;
+	transition: box-shadow 0.3s, opacity 0.3s;
+	border: none; /* Asegurar que no tenga borde por defecto */
+}
+
+.su-submit-button:hover {
+	box-shadow: 0 8px 30px #2f0a23;
+}
+
+.su-submit-button:disabled {
+	opacity: 0.7;
+	cursor: not-allowed;
+	box-shadow: none;
+}
+
+/* Enlace Volver A Inicio */
+.signup-link-container { /* Usando el nombre de clase original para el enlace */
+	text-align: center;
+	font-size: 0.875rem; /* Reemplazado var(--small-font-size) */
+	font-weight: 500; /* Reemplazado var(--font-medium) */
+	margin-top: 0.7rem;
+}
+
+.signup-link-container a {
+	color: #171240; /* Reemplazado var(--first-color) (Asumiendo el valor del archivo anterior) */
+	text-decoration: none;
+	font-weight: 600; /* Reemplazado var(--font-semi-bold) */
+}
+
+/* Contenedor del Botón de Google */
+.google-signin-button-wrapper {
+	display: flex;
+	justify-content: center;
+	margin-top: 7px;
+}
+
+/*======================================================================
+  MEDIA QUERIES y AJUSTES DE TAMAÑO DEL FORMULARIO
+ ======================================================================*/
+
+/* APLICA ESTO PARA MÓVILES (Establecer ancho máximo para el formulario) */
+@media screen and (min-width: 576px) {
+	.su-wrapper {
+		width: 450px;
+		max-width: 450px;
+		margin: auto;
+		padding: 2rem;
+		padding-top: 10px;
+	}
+}
+
+/*=========================================================
+  CARRUSEL DE COLUMNAS VERTICALES (SIN CAMBIOS ESTRUCTURALES)
+  =========================================================
+*/
+
+/* Contenedor principal para todas las columnas de carrusel */
+.carousel-container {
+	position: absolute; /* Para que ocupe todo el espacio de fondo */
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	overflow: hidden; /* Oculta lo que se desborda */
+	z-index: 1; /* Detrás del formulario */
+	display: flex; /* Para que las columnas fluyan horizontalmente */
+	flex-direction: row; /* Las columnas se colocan una al lado de la otra */
+	justify-content: space-around; /* Distribuye las columnas uniformemente */
+	align-items: flex-start; /* Las columnas comienzan desde arriba */
+}
+
+/* Cada columna individual del carrusel */
+.carousel-column {
+	display: flex;
+	flex-direction: column; /* Las tarjetas dentro de la columna se apilan verticalmente */
+	gap: 2rem; /* Reemplazado var(--card-gap) */
+	height: fit-content; /* Se ajusta al contenido */
+	flex-shrink: 0; /* No permite que las columnas se encojan */
+	/* Aplicamos la animación vertical a cada columna */
+	animation: scrollVertical 40s linear infinite; /* Reemplazado var(--animation-duration) */
+	will-change: transform;
+}
+
+/* Animación inversa para columnas alternas para un efecto más dinámico */
+.carousel-column:nth-child(odd) {
+	animation-direction: reverse; /* Una columna sube, la otra baja */
+}
+.carousel-column:nth-child(even) {
+	animation-delay: calc(40s / 2 * -1); /* Reemplazado var(--animation-duration) */
+}
+
+/* Contenedor de las tarjetas dentro de cada grupo (copias original y clonada) */
+.group {
+	display: flex;
+	flex-direction: column; /* Las tarjetas se apilan verticalmente */
+	gap: 2rem; /* Reemplazado var(--card-gap) */
+	width: fit-content; /* Se ajusta al ancho de las tarjetas */
+}
+
+/* Estilo de cada tarjeta (contenedor de la imagen) */
+.card {
+	width: 370px; /* Reemplazado var(--card-size) */
+	height: 370px; /* Reemplazado var(--card-size) */
+	flex-shrink: 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-radius: 1rem; /* Borde cuadrado suave como en tu imagen */
+	padding: 0.5rem; /* Pequeño padding dentro de la tarjeta */
+}
+
+/* Estilo de las imágenes */
+.card img {
+	width: 800%; /* Imágenes más pequeñas dentro de la tarjeta */
+	height: 100%;
+	object-fit: contain;
+}
+
+/* 6. Definición de la animación vertical */
+@keyframes scrollVertical {
+	from {
+		transform: translateY(0);
+	}
+	to {
+		/* Desplaza el 50% de la altura de la columna completa para el loop infinito. */
+		transform: translateY(calc(-50% - 2rem / 2)); /* Reemplazado var(--card-gap) */
+	}
+}
+
+/* Ajuste de media query para asegurar que el carrusel se desactive en móviles */
+@media screen and (max-width: 575px) {
+	.carousel-container {
+		display: none;
+	}
+	/* El .su-page principal debe ser el que use todo el espacio en móvil si se quita el carrusel */
+	.su-page {
+		background: linear-gradient(180deg, #deb8e9 0%, #2f0a23 100%); /* Asegura que el fondo esté visible */
+	}
+	/* Centrado del contenedor del formulario en móvil */
+	.su-wrapper {
+		width: 90%; /* Ancho más pequeño para el móvil */
+		max-width: none;
+		width: 340px;
+		max-width: 380px;
+		margin: auto;
+		padding: 2rem 2rem 1.25rem 2rem;
+	}
+}

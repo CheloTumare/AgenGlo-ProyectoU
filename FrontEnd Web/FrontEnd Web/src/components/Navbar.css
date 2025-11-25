@@ -1,0 +1,357 @@
+/*
+  ==============================================
+  1. Estilos Generales de la Barra de Navegación
+  ==============================================
+*/
+.navbar-container {
+    /* Valores reemplazados de las variables */
+    background-color: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid #e5e7eb;
+    
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    padding: 0 1rem;
+}
+
+.navbar-content {
+    max-width: 1280px;
+    margin: 0 auto;
+    height: 64px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/*
+  ==============================================
+  2. Estilos del Logo y Texto
+  ==============================================
+*/
+.navbar-logo-area {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.navbar-logo-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+/* Estilo para tu Logotipo de Imagen */
+.logo-image {
+    height: 38px;
+    width: auto;
+    margin-right: 8px;
+    object-fit: contain;
+}
+
+.logo-text {
+    font-size: 1.25rem;
+    font-weight: bold;
+    /* color-text-dark */
+    color: #1f2937; 
+}
+
+/*
+  ==============================================
+  3. Menú Móvil (Hamburguesa) y Overlay
+  ==============================================
+*/
+
+.menu-toggle-button {
+    display: block;
+}
+
+.menu-toggle-button button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    /* color-text-medium */
+    color: #4b5563;
+    transition: color 0.2s;
+}
+
+.menu-toggle-button button:hover {
+    /* color-text-dark */
+    color: #1f2937;
+}
+
+.menu-icon {
+    width: 24px;
+    height: 24px;
+}
+
+/* Contenedor de enlaces - Estilos por defecto (Móvil) */
+.navbar-links-desktop {
+    position: absolute;
+    top: 64px;
+    left: 0;
+    right: 0;
+    /* color-background */
+    background-color: #ffffff;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 40;
+    
+    /* Estado Oculto */
+    display: none; 
+    
+    flex-direction: column;
+    padding: 1rem;
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+    transform: translateY(-100%);
+    transition: transform 0.3s ease-out, opacity 0.3s ease-out;
+    opacity: 0;
+}
+
+/* Estado Abierto del Menú Móvil */
+.navbar-links-mobile-open {
+    display: flex; 
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.nav-links-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/*
+  ==============================================
+  4. Links de Navegación Individuales
+  ==============================================
+*/
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    /* color-text-medium */
+    color: #4b5563;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link:hover {
+    /* color-text-dark */
+    color: #1f2937;
+    background-color: #f9fafb; 
+}
+
+.nav-link-icon {
+    width: 16px;
+    height: 16px;
+}
+
+.nav-link-active {
+    /* color-primary-light */
+    background-color: #eff6ff;
+    /* color-primary */
+    color: #3b82f6;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+
+/* Indicador de ruta activa */
+.nav-link-underline {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    /* color-primary */
+    background-color: #3b82f6;
+    border-radius: 9999px;
+}
+
+/*
+  ==============================================
+  5. Acciones de Usuario (Perfil y Logout)
+  ==============================================
+*/
+
+.navbar-user-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding-top: 1rem;
+    /* color-border */
+    border-top: 1px solid #e5e7eb;
+}
+
+/* Botón de Notificación */
+.notification-button {
+    background: none;
+    border: none;
+    padding: 8px;
+    border-radius: 8px;
+    cursor: pointer;
+    align-self: flex-start; 
+    transition: background-color 0.2s;
+}
+
+.notification-button:hover {
+    background-color: #f3f4f6; 
+}
+
+.notification-icon {
+    width: 20px;
+    height: 20px;
+    color: #9ca3af;
+}
+
+/* Info del Perfil */
+.user-profile-info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.user-avatar {
+    width: 32px;
+    height: 32px;
+    /* color-secondary y acento rosa */
+    background: linear-gradient(to right, #9333ea, #ec4899);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.user-avatar-icon {
+    width: 16px;
+    height: 16px;
+    color: white;
+}
+
+.user-name {
+    font-size: 0.875rem;
+    font-weight: 500;
+    /* color-text-dark */
+    color: #1f2937;
+}
+
+.user-role {
+    font-size: 0.75rem;
+    /* color-text-medium */
+    color: #4b5563;
+}
+
+/* Botón de Logout */
+.logout-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    border-radius: 6px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    /* color-text-medium */
+    color: #4b5563;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.logout-button:hover {
+    color: #dc2626; 
+    background-color: #fef2f2; 
+}
+
+.logout-icon {
+    width: 16px;
+    height: 16px;
+}
+
+
+/*
+  ==============================================
+  6. Media Query: Desktop (Min-width: 768px)
+  ==============================================
+*/
+@media (min-width: 768px) { 
+
+    .menu-toggle-button {
+        display: none; 
+    }
+/* Asegura que los detalles del texto del usuario se muestren desde 768px */
+.user-text-details {
+    /* Antes: display: block; */
+    display: block; 
+}
+
+/* ⬅️ CAMBIO IMPORTANTE: Mostrar el texto "Salir" desde 768px */
+.logout-text {
+    display: block; 
+}
+    .navbar-links-desktop {
+        position: static;
+        box-shadow: none;
+        display: flex; 
+        flex-direction: row;
+        padding: 0;
+        align-items: center;
+        width: auto;
+        border-radius: 0;
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .nav-links-list {
+        flex-direction: row; 
+        gap: 4px; 
+        margin-bottom: 0;
+        margin-right: 1rem; 
+        border-top: none;
+        padding-top: 0;
+    }
+
+    .nav-link {
+        padding-bottom: 12px; 
+        padding-top: 12px;
+    }
+
+    .navbar-user-actions {
+        flex-direction: row; 
+        gap: 1rem; 
+        border-top: none;
+        padding-top: 0;
+        align-items: center;
+    }
+
+    .logout-text {
+        display: none; 
+    }
+
+}
+
+/*
+  ==============================================
+  7. Media Query: Large Desktop (Min-width: 1024px)
+  ==============================================
+*/
+@media (min-width: 1024px) { 
+
+    .user-text-details {
+        display: block; 
+    }
+    .logout-text {
+        display: block; 
+    }
+}
