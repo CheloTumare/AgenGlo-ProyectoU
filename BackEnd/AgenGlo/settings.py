@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 import environ
 from pathlib import Path
 from datetime import timedelta
+import os
+from django.conf import settings
 
 env = environ.Env(
     # establecer valor predeterminado
@@ -86,8 +88,8 @@ WSGI_APPLICATION = "AgenGlo.wsgi.application"
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://localhost:5173",
-    "http://192.168.100.5:8000",
-    "exp://192.168.100.5:8081"
+    os.environ.get("FRONT_WEB_ORIGIN", "http://localhost:5173"),
+    os.environ.get("FRONT_MOBILE_ORIGIN", "exp://192.168.100.5:8081"),
 ]
 
 
