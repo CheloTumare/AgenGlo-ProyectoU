@@ -1,0 +1,93 @@
+#map {
+	height: 100vh;
+}
+
+.control-panel {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	z-index: 1000;
+	background: white;
+	padding: 15px;
+	border-radius: 5px;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+	width: 350px;
+}
+
+.route-option {
+	margin-bottom: 10px;
+	padding: 8px;
+	border-radius: 4px;
+	cursor: pointer;
+}
+
+.route-option:hover {
+	background-color: #f8f9fa;
+}
+
+.route-info {
+	font-size: 12px;
+	color: #666;
+}
+
+.address-input {
+	margin-bottom: 16px;
+}
+
+.address-input .input-group {
+	display: flex;
+	gap: 8px;
+}
+
+.address-input .form-control {
+	flex: 1;
+}
+
+.address-input .btn {
+	white-space: nowrap;
+	padding-left: 12px;
+	padding-right: 12px;
+}
+
+.custom-marker {
+	background-color: #4285f4;
+	width: 20px;
+	height: 20px;
+	border-radius: 50%;
+	border: 6px solid rgb(82, 103, 175);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: white;
+	font-weight: bold;
+}
+
+.btn-group {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	gap: 10px;
+	margin-top: 8px;
+	margin-bottom: 12px;
+}
+
+.btn-group .btn {
+	flex: 1;
+}
+
+#reset {
+	background-color: #dc3545;
+	border-color: #dc3545;
+	font-weight: 700;
+}
+
+#reset:hover {
+	background-color: #b02a37;
+	border-color: #b02a37;
+}
+
+#compare {
+	background-color: #0d6efd;
+	border-color: #0d6efd;
+	font-weight: 600;
+}

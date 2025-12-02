@@ -9,6 +9,7 @@ import GestionServicios from './Agendamiento/pages/GestionServicios'
 import GestionDisponibilidad from './Agendamiento/pages/GestionDisponibilidad'
 import GestionCitasProveedores from './Agendamiento/pages/GestionCitasProveedor'
 import Navbar from './components/Navbar'
+import MapaRutas from "./Agendamiento/pages/MapaRutas"
 import { AuthProvider } from './Agendamiento/contexts/AuthContext'
 import './App.css'
 
@@ -36,6 +37,9 @@ function App() {
             <Route path='/servicios' element={<GestionServicios />} />
             <Route path='/disponibilidad' element={<GestionDisponibilidad />} />
             <Route path='/gestion-citas' element={<GestionCitasProveedores />} />
+
+            {/* Ruta de Mapa*/}
+            <Route path="/mapa-rutas" element={<MapaRutas />} />
           </Routes>
         </AuthProvider>
       </Router>
